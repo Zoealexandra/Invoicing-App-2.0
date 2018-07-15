@@ -20495,7 +20495,12 @@ var InvoiceDetails = function (_React$Component) {
               'label',
               null,
               'To:',
-              _react2.default.createElement('input', { type: 'text', name: 'to', onChange: this.handleChange })
+              _react2.default.createElement('input', {
+                type: 'text',
+                name: 'to',
+                onChange: this.handleChange,
+                value: this.state.to
+              })
             )
           ),
           _react2.default.createElement(
@@ -20505,7 +20510,7 @@ var InvoiceDetails = function (_React$Component) {
               'label',
               null,
               'Inv Number:',
-              _react2.default.createElement('input', { type: 'text', name: 'invNumber', onChange: this.handleChange })
+              _react2.default.createElement('input', { type: 'text', name: 'invNumber', onChange: this.handleChange, value: this.state.invNumber })
             )
           ),
           _react2.default.createElement(
@@ -20515,7 +20520,7 @@ var InvoiceDetails = function (_React$Component) {
               'label',
               null,
               'Date:',
-              _react2.default.createElement('input', { type: 'text', name: 'date', onChange: this.handleChange })
+              _react2.default.createElement('input', { type: 'text', name: 'date', onChange: this.handleChange, value: this.state.date })
             )
           ),
           _react2.default.createElement('input', { type: 'submit', value: 'Submit', onChange: this.submitInvoice })
