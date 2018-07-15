@@ -13,6 +13,7 @@ class InvoiceDetails extends React.Component {
 
   handleChange (evt) {
     this.setState({
+        ...this.state,
         [evt.target.name]: evt.target.value
     })
   }
@@ -35,16 +36,26 @@ class InvoiceDetails extends React.Component {
         <div>
           <label>
             Inv Number:
-            <input type="text" name="invNumber" onChange={this.handleChange} value={this.state.invNumber}/>
+            <input 
+            type="text" 
+            name="invNumber" 
+            onChange={this.handleChange} 
+            value={this.state.invNumber}
+            />
           </label>
         </div>
         <div>
           <label>
           Date:
-          <input type="text" name="date" onChange={this.handleChange} value={this.state.date}/>
+          <input 
+          type="text" 
+          name="date" 
+          onChange={this.handleChange} 
+          value={this.state.date}
+          />
           </label>
         </div>
-        <input type="submit" value="Submit" onChange={this.submitInvoice}/>
+        <input type="submit" value="Submit" />
       </form>
     </div>
     )
