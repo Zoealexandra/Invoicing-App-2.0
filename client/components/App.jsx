@@ -1,4 +1,5 @@
 import React from 'react'
+import InvoiceDetails from './InvoiceDetails';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,14 +18,8 @@ class App extends React.Component {
   render () {
     return (
       <div className='app'>
-      <ul>
-        {this.state.example.map(goose => {
-          return (
-            <li key={goose}>{goose}</li>
-          )
-        })}
-      </ul>
-    </div>
+        <InvoiceDetails />
+      </div>
     )
   }
 }
