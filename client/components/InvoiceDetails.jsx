@@ -46,12 +46,12 @@ class InvoiceDetails extends React.Component {
         </div>
         <div>
           <label>
-          Date:
-          <input 
-          type="text" 
-          name="date" 
-          onChange={this.handleChange} 
-          value={this.state.date}
+            Date:
+            <input 
+            type="text" 
+            name="date" 
+            onChange={this.handleChange} 
+            value={this.state.date}
           />
           </label>
         </div>
