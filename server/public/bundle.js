@@ -20383,13 +20383,18 @@ var _InvoiceDetails = __webpack_require__(26);
 
 var _InvoiceDetails2 = _interopRequireDefault(_InvoiceDetails);
 
+var _LineItems = __webpack_require__(27);
+
+var _LineItems2 = _interopRequireDefault(_LineItems);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app' },
-    _react2.default.createElement(_InvoiceDetails2.default, null)
+    _react2.default.createElement(_InvoiceDetails2.default, null),
+    _react2.default.createElement(_LineItems2.default, null)
   );
 };
 
@@ -20510,6 +20515,171 @@ var InvoiceDetails = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = InvoiceDetails;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LineItem = __webpack_require__(28);
+
+var _LineItem2 = _interopRequireDefault(_LineItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LineItems = function (_React$Component) {
+  _inherits(LineItems, _React$Component);
+
+  function LineItems(props) {
+    _classCallCheck(this, LineItems);
+
+    var _this = _possibleConstructorReturn(this, (LineItems.__proto__ || Object.getPrototypeOf(LineItems)).call(this, props));
+
+    _this.state = {
+      addLine: false
+    };
+    _this.addLine = _this.addLine.bind(_this);
+    return _this;
+  }
+
+  _createClass(LineItems, [{
+    key: 'addLine',
+    value: function addLine() {
+      this.setState({
+        addLine: true
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'lineItems' },
+        _react2.default.createElement(_LineItem2.default, null),
+        _react2.default.createElement(
+          'button',
+          { onSubmit: this.addLine },
+          'Add Line Item'
+        ),
+        this.addLine && _react2.default.createElement(_LineItem2.default, null)
+      );
+    }
+  }]);
+
+  return LineItems;
+}(_react2.default.Component);
+
+exports.default = LineItems;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LineItem = function (_React$Component) {
+  _inherits(LineItem, _React$Component);
+
+  function LineItem(props) {
+    _classCallCheck(this, LineItem);
+
+    var _this = _possibleConstructorReturn(this, (LineItem.__proto__ || Object.getPrototypeOf(LineItem)).call(this, props));
+
+    _this.state = {
+      description: '',
+      amount: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(LineItem, [{
+    key: 'handleChange',
+    value: function handleChange(evt) {
+      this.setState(_extends({}, this.state, _defineProperty({}, evt.target.name, evt.target.value)));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'lineItem' },
+        _react2.default.createElement(
+          'form',
+          null,
+          _react2.default.createElement(
+            'label',
+            null,
+            'Description:',
+            _react2.default.createElement('input', {
+              type: 'text',
+              name: 'to',
+              onChange: this.handleChange,
+              value: this.state.description
+            })
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Amount:',
+            _react2.default.createElement('input', {
+              type: 'text',
+              name: 'invNumber',
+              onChange: this.handleChange,
+              value: this.state.amount
+            })
+          ),
+          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+        )
+      );
+    }
+  }]);
+
+  return LineItem;
+}(_react2.default.Component);
+
+exports.default = LineItem;
 
 /***/ })
 /******/ ]);
