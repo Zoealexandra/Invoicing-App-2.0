@@ -20539,6 +20539,8 @@ var _LineItem2 = _interopRequireDefault(_LineItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -20554,15 +20556,24 @@ var LineItems = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (LineItems.__proto__ || Object.getPrototypeOf(LineItems)).call(this, props));
 
     _this.state = {
-      addLine: false
+      lineItems: []
     };
     _this.addLine = _this.addLine.bind(_this);
+    _this.removeLine = _this.removeLine.bind(_this);
     return _this;
   }
 
   _createClass(LineItems, [{
     key: 'addLine',
     value: function addLine() {
+      var lineItemIndex = this.state.lineItems.length + 1;
+      this.setState({
+        lineItems: [].concat(_toConsumableArray(this.state.lineItems), [lineItemIndex])
+      });
+    }
+  }, {
+    key: 'removeLine',
+    value: function removeLine() {
       this.setState({
         addLine: true
       });
@@ -20574,12 +20585,14 @@ var LineItems = function (_React$Component) {
         'div',
         { className: 'lineItems' },
         _react2.default.createElement(_LineItem2.default, null),
+        this.state.lineItems.length && this.state.lineItems.map(function (lineIndex) {
+          return _react2.default.createElement(_LineItem2.default, null);
+        }),
         _react2.default.createElement(
           'button',
-          { onSubmit: this.addLine },
+          { onClick: this.addLine },
           'Add Line Item'
-        ),
-        this.addLine && _react2.default.createElement(_LineItem2.default, null)
+        )
       );
     }
   }]);
