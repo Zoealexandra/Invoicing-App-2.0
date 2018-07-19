@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Invoice = (props) => (
-  <div className='invoice col-sm'>
-    {props.description}{props.amount}
+const ViewSingleInvoice = (props) => (
+  <div className='viewSingleInvoice col-sm'>
+    <p>{props.invoice.description}{props.invoice.amount}</p>
   </div>
 )
 
-export default Invoice
+export default ViewSingleInvoice
