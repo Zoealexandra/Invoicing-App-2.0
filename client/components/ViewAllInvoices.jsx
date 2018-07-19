@@ -19,24 +19,33 @@ class ViewAllInvoices extends React.Component {
   }
 
   render() {
+    const InvNumbersArr = Object.keys(this.state.invoices)
     return (
       <div className='viewAllInvoices container-fluid'>
       <h3>Invoices</h3>
         <div className='row invoice-row'>
           <table>
-            <tbody>
-              {this.state.invoices.map(lineItem => {
-                return (
-                  <ViewLineItems key={lineItem.lineitemId} lineItem={lineItem} />
-                )
-              })}
-            </tbody>
+            {InvNumbersArr.map(invNum => {
+              return (
+                <tbody>
+                  <tr>
+                    <td>{invNum}</td>
+                  </tr>
+                  {this.state.invoices[invNum].map(lineItem => {
+                    return (
+                      <ViewLineItems key={lineItem.lineitemId} lineItem={lineItem} />
+                    )
+                  })}
+                </tbody>
+              ) 
+            })}  
           </table>
         </div>
       </div>
     )
   }
 }
+
 
 
 export default ViewAllInvoices
