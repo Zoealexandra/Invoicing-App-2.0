@@ -20773,6 +20773,9 @@ var ViewAllInvoices = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
+      var InvNumbersArr = Object.keys(this.state.invoices);
       return _react2.default.createElement(
         'div',
         { className: 'viewAllInvoices container-fluid' },
@@ -20787,13 +20790,24 @@ var ViewAllInvoices = function (_React$Component) {
           _react2.default.createElement(
             'table',
             null,
-            _react2.default.createElement(
-              'tbody',
-              null,
-              this.state.invoices.map(function (lineItem) {
-                return _react2.default.createElement(_ViewLineItems2.default, { key: lineItem.lineitemId, lineItem: lineItem });
-              })
-            )
+            InvNumbersArr.map(function (invNum) {
+              return _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    invNum
+                  )
+                ),
+                _this3.state.invoices[invNum].map(function (lineItem) {
+                  return _react2.default.createElement(_ViewLineItems2.default, { key: lineItem.lineitemId, lineItem: lineItem });
+                })
+              );
+            })
           )
         )
       );
@@ -20827,10 +20841,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var BASE_ROUTE = exports.BASE_ROUTE = '/api/v1/invoices';
 var INVOICES_ROUTE = exports.INVOICES_ROUTE = BASE_ROUTE + '/getAllInvoices';
 
+// aPI call to get all invoices
 function getAllInvoices() {
   return _superagent2.default.get(INVOICES_ROUTE + '/').then(function (res) {
-    return res.body;
+    return groupByInvoice(res.body, 'id');
   });
+}
+
+//function to sort invoices by invoice number
+function groupByInvoice(objectArray, property) {
+  return objectArray.reduce(function (acc, obj) {
+    var key = obj[property];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, {});
 }
 
 /***/ }),
