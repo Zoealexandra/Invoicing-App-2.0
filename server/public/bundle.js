@@ -20746,8 +20746,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import ViewSingleInvoice from './ViewSingleInvoice'
-
 
 var ViewAllInvoices = function (_React$Component) {
   _inherits(ViewAllInvoices, _React$Component);
@@ -20758,23 +20756,7 @@ var ViewAllInvoices = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ViewAllInvoices.__proto__ || Object.getPrototypeOf(ViewAllInvoices)).call(this, props));
 
     _this.state = {
-      invoices: [{
-        'id': 1001,
-        'to': 'tom',
-        'invoiceNumber': 'ABC123',
-        'date': '15-06-2018',
-        'lineitemId': 2001,
-        'description': 'cat food',
-        'amount': '15.00'
-      }, {
-        'id': 1001,
-        'to': 'tom',
-        'invoiceNumber': 'ABC123',
-        'date': '15-06-2018',
-        'lineitemId': 2002,
-        'description': 'dog food',
-        'amount': '17.00'
-      }]
+      invoices: []
     };
     return _this;
   }
@@ -20802,9 +20784,17 @@ var ViewAllInvoices = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'row invoice-row' },
-          this.state.invoices.map(function (lineItem) {
-            return _react2.default.createElement(_ViewLineItems2.default, { key: lineItem.lineitemId, lineItem: lineItem });
-          })
+          _react2.default.createElement(
+            'table',
+            null,
+            _react2.default.createElement(
+              'tbody',
+              null,
+              this.state.invoices.map(function (lineItem) {
+                return _react2.default.createElement(_ViewLineItems2.default, { key: lineItem.lineitemId, lineItem: lineItem });
+              })
+            )
+          )
         )
       );
     }
