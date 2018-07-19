@@ -20383,18 +20383,13 @@ var _InvoiceDetails = __webpack_require__(26);
 
 var _InvoiceDetails2 = _interopRequireDefault(_InvoiceDetails);
 
-var _LineItems = __webpack_require__(27);
-
-var _LineItems2 = _interopRequireDefault(_LineItems);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app' },
-    _react2.default.createElement(_InvoiceDetails2.default, null),
-    _react2.default.createElement(_LineItems2.default, null)
+    _react2.default.createElement(_InvoiceDetails2.default, null)
   );
 };
 
@@ -20418,6 +20413,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _LineItems = __webpack_require__(27);
+
+var _LineItems2 = _interopRequireDefault(_LineItems);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20503,9 +20502,10 @@ var InvoiceDetails = function (_React$Component) {
                 onChange: this.handleChange,
                 value: this.state.date
               })
-            )
-          ),
-          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+            ),
+            _react2.default.createElement(_LineItems2.default, null),
+            _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+          )
         )
       );
     }
@@ -20659,31 +20659,26 @@ var LineItem = function (_React$Component) {
         'div',
         { className: 'lineItem' },
         _react2.default.createElement(
-          'form',
+          'label',
           null,
-          _react2.default.createElement(
-            'label',
-            null,
-            'Description:',
-            _react2.default.createElement('input', {
-              type: 'text',
-              name: 'to',
-              onChange: this.handleChange,
-              value: this.state.description
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Amount:',
-            _react2.default.createElement('input', {
-              type: 'text',
-              name: 'invNumber',
-              onChange: this.handleChange,
-              value: this.state.amount
-            })
-          ),
-          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+          'Description:',
+          _react2.default.createElement('input', {
+            type: 'text',
+            name: 'to',
+            onChange: this.handleChange,
+            value: this.state.description
+          })
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          'Amount:',
+          _react2.default.createElement('input', {
+            type: 'text',
+            name: 'invNumber',
+            onChange: this.handleChange,
+            value: this.state.amount
+          })
         )
       );
     }

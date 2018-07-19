@@ -1,5 +1,7 @@
 import React from 'react'
 
+import LineItems from './LineItems';
+
 class InvoiceDetails extends React.Component {
   constructor(props) {
     super(props)
@@ -54,8 +56,9 @@ class InvoiceDetails extends React.Component {
             value={this.state.date}
           />
           </label>
+          <LineItems />
+          <input type="submit" value="Submit" />
         </div>
-        <input type="submit" value="Submit" />
       </form>
     </div>
     )

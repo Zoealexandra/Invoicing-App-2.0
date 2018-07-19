@@ -20,7 +20,6 @@ class LineItem extends React.Component {
   render () {
     return (
     <div className='lineItem'>
-      <form>
           <label>
             Description:
             <input 
@@ -39,8 +38,6 @@ class LineItem extends React.Component {
             value={this.state.amount}
             />
           </label>
-        <input type="submit" value="Submit" />
-      </form>
     </div>
     )
   }
